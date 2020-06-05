@@ -5,7 +5,7 @@ export default (fallback = '/', allowHostnames = []) => {
   const next = qs.parse(window.location.search).next;
   if (next) {
     const {hostname} = new Url(next);
-    if (hostname === window.location.hostname || allowHostnames.includes(hostname)) {
+    if (!hostname || hostname === window.location.hostname || allowHostnames.includes(hostname)) {
       return next;
     }
   }
