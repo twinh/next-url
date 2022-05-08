@@ -1,6 +1,6 @@
 # next-url
 
-Get next redirect URL from query string
+Get the next redirect URL from the current URL
 
 ## Install
 
@@ -25,4 +25,7 @@ let url = nextUrl(); // Fallback to index "/"
 
 // window.location.href = "https://example.com?next=https://test.com"
 let url = nextUrl('/', ['test.com']); // Returns https://test.com
+
+// window.location.href = "https://example.com#/login?next=/user"
+let url = nextUrl('/'); // Returns /user
 ```

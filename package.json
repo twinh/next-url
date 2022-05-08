@@ -1,6 +1,6 @@
 {
   "name": "next-url",
-  "description": "Get next redirect URL from query string",
+  "description": "Get the next redirect URL from the current URL",
   "version": "0.0.0-development",
   "main": "index.js",
   "author": "twinh",

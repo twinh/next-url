@@ -7,6 +7,7 @@ describe('next url', () => {
     delete window.location;
     window.location = {
       search: '',
+      hash: '',
     };
   });
 
@@ -17,7 +18,8 @@ describe('next url', () => {
   it('should return fallback URL when no query params', function () {
     window.location = {
       hostname: 'example.com',
-      search: ''
+      search: '',
+      hash: ''
     };
 
     expect(nextUrl()).toBe('/');
@@ -48,5 +50,23 @@ describe('next url', () => {
     };
 
     expect(nextUrl('/', ['test.com'])).toBe('http://test.com');
+  });
+  
+  it('should support URL hash', function () {
+    window.location = {
+      hostname: 'example.com',
+      hash: '#/admin.html?next=%2Fproducts'
+    };
+
+    expect(nextUrl('index')).toBe('/products');
+  });
+
+  it('should ignore URL hash without params', function () {
+    window.location = {
+      hostname: 'example.com',
+      hash: '#/admin.html'
+    };
+
+    expect(nextUrl('index')).toBe('index');
   });
 });
