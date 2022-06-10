@@ -21,6 +21,6 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "jest": "^26.0.1",
-    "semantic-release": "^17.0.8"
+    "semantic-release": "^19.0.3"
   }
 }
